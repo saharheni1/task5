@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task5</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <h1>interface admin</h1>
+    
+<input type="file"
+       id="avatar"
+       accept="image/png, image/jpeg">
+    <input type="text" id="input" />
+    <button>poster</button>
+    <p> liste des etudiants </p>
+    <ul></ul>
+
+    
+
+</body>
+<script>
+ let button = document.querySelector("button");
+let liste = document.querySelector("ul");
+let input = document.getElementById("input");
+let img =document.getElementById("avatar");
+
+button.addEventListener("click", ajoutpost());
+ let i = 0;
+      function ajoutpost() {
+        if (isInputEmpty()) {
+          alert("Input empty, please type something !");
+          return;
+        }
+
+        let li = document.createElement("li");
+        li.id = "-" + i;
+        i++;
+        let span = document.createElement("span");
+        let spanimg = document.createElement("span");
+
+        span.innerHTML = input.value;
+        let button = document.createElement("button");
+        button.innerText = "delete";
+        button.addEventListener("click", deleteetu);
+         li.appendChild(span);
+        li.appendChild(button);
+        liste.appendChild(li);
+      }
+      function isInputEmpty() {
+        if (input.value == "") {
+          return true;
+        }
+        return false;
+      }
+       function deleteetu(e) {
+        let id = e.target.parentElement.id;
+        let elementToDelete = document.getElementById(id);
+        console.log(elementToDelete);
+        elementToDelete.remove();
+      }
+
+</script>
+</html>
